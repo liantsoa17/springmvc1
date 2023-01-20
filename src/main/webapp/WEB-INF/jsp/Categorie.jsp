@@ -22,16 +22,16 @@
                     <div class="collapse navbar-collapse" id="navcol-1">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item"><a class="nav-link active" href="#">CATEGORIE</a></li>
-                            <li class="nav-item"><a class="nav-link" href="http://localhost:8080/listeEnchere">LISTE ENCHERE</a></li>
-                            <li class="nav-item"><a class="nav-link" href="http://localhost:8080/pourcentage">COMISSION</a></li>
-                            <li class="nav-item"><a class="nav-link" href="http://localhost:8080/demandeRecharge">RECHARGEMENT</a></li>
+                            <li class="nav-item"><a class="nav-link" href="springmvc1-production.up.railway.app/listeEnchere">LISTE ENCHERE</a></li>
+                            <li class="nav-item"><a class="nav-link" href="springmvc1-production.up.railway.app/pourcentage">COMISSION</a></li>
+                            <li class="nav-item"><a class="nav-link" href="springmvc1-production.up.railway.app/demandeRecharge">RECHARGEMENT</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
             <section class="contact-clean" style="margin-top: 50px">
             <br>
-            <form method="post" action="http://localhost:8080/newCategorie">
+            <form method="post" action="springmvc1-production.up.railway.app/newCategorie">
                 <h2 class="text-center">Insert nouveau</h2>
                 <div class="mb-3"></div>
                 <div class="mb-3"><input position="floating" class="form-control is-invalid" type="text" name="categorie" placeholder="categorie"></div>
@@ -53,10 +53,10 @@
                             <td>${listCategorie.id}</td>
                             <td>${listCategorie.nom}</td>
                             <td>
-                                <a href="http://localhost:8080/updateCategorie?id=${listCategorie.id}&&nom=${listCategorie.nom}">update</a>
+                                <a href="springmvc1-production.up.railway.app/updateCategorie?id=${listCategorie.id}&&nom=${listCategorie.nom}">update</a>
                             </td>
                             <td>
-                                <a href="http://localhost:8080/deleteCategorie?id=${listCategorie.id}&&nom=${listCategorie.nom}">delete</a>
+                                <a href="springmvc1-production.up.railway.app/deleteCategorie?id=${listCategorie.id}&&nom=${listCategorie.nom}">delete</a>
                             </td>
                         </tr>
                     </c:forEach>

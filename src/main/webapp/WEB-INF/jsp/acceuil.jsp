@@ -19,11 +19,11 @@
                 <div class="container"><a class="navbar-brand logo" href="#">Enchere</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navcol-1">
                         <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link" href="http://localhost:8080/Categorie">cATEGORIE</a></li>
-                            <li class="nav-item"><a class="nav-link" href="http://localhost:8080/statistique">STATISTIQUE</a></li>
-                            <li class="nav-item"><a class="nav-link" href="http://localhost:8080/listeEnchere">LISTE ENCHERE</a></li>
-                            <li class="nav-item"><a class="nav-link" href="http://localhost:8080/pourcentage">COMISSION</a></li>
-                            <li class="nav-item"><a class="nav-link" href="http://localhost:8080/demandeRecharge">RECHARGEMENT</a></li>
+                            <li class="nav-item"><a class="nav-link" href="springmvc1-production.up.railway.app/Categorie">cATEGORIE</a></li>
+                            <li class="nav-item"><a class="nav-link" href="springmvc1-production.up.railway.app/statistique">STATISTIQUE</a></li>
+                            <li class="nav-item"><a class="nav-link" href="springmvc1-production.up.railway.app/listeEnchere">LISTE ENCHERE</a></li>
+                            <li class="nav-item"><a class="nav-link" href="springmvc1-production.up.railway.app/pourcentage">COMISSION</a></li>
+                            <li class="nav-item"><a class="nav-link" href="springmvc1-production.up.railway.app/demandeRecharge">RECHARGEMENT</a></li>
                         </ul>
                     </div>
                 </div>

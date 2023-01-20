@@ -21,10 +21,10 @@
                 <div class="container"><a class="navbar-brand logo" href="#">Enchere</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navcol-1">
                         <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link active" href="http://localhost:8080/Categorie">CATEGORIE</a></li>
-                            <li class="nav-item"><a class="nav-link" href="http://localhost:8080/listeEnchere">LISTE ENCHERE</a></li>
-                            <li class="nav-item"><a class="nav-link" href="http://localhost:8080/pourcentage">COMISSION</a></li>
-                            <li class="nav-item"><a class="nav-link" href="http://localhost:8080/demandeRecharge">RECHARGEMENT</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="springmvc1-production.up.railway.app/Categorie">CATEGORIE</a></li>
+                            <li class="nav-item"><a class="nav-link" href="springmvc1-production.up.railway.app/listeEnchere">LISTE ENCHERE</a></li>
+                            <li class="nav-item"><a class="nav-link" href="springmvc1-production.up.railway.app/pourcentage">COMISSION</a></li>
+                            <li class="nav-item"><a class="nav-link" href="springmvc1-production.up.railway.app/demandeRecharge">RECHARGEMENT</a></li>
                         </ul>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
 
             <section class="contact-clean" style="margin-top: 50px">
             <br>
-            <form method="post" action="http://localhost:8080/Updateexecute">
+            <form method="post" action="springmvc1-production.up.railway.app/Updateexecute">
                 <h2 class="text-center">Update</h2>
                 <div class="mb-3"></div>
                 <input type="hidden" name="id" value="${id}">

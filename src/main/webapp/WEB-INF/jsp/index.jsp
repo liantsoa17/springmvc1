@@ -16,7 +16,7 @@
     </head>
         <body>
              <section class="login-clean" style="height: 905.2px;">
-            <form method="post" action="http://localhost:8080/loginAdmin">
+            <form method="post" action="springmvc1-production.up.railway.app/loginAdmin">
                 <h2 class="visually-hidden">Login Form</h2>
                 <div class="illustration"><i class="icon ion-ios-personadd"></i></div>
                 <div class="mb-3"><input value="admin@gmail.com" class="form-control" type="email" name="email" placeholder="Email"></div>
