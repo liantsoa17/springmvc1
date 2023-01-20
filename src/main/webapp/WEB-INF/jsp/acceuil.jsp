@@ -7,12 +7,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <title>Acceuil</title>
-        <link rel="stylesheet" href="assets/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://springmvc1-production.up.railway.app/assets/assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
-        <link rel="stylesheet" href="assets/assets/fonts/simple-line-icons.min.css">
-        <link rel="stylesheet" href="assets/assets/css/Footer-Basic.css">
+        <link rel="stylesheet" href="https://springmvc1-production.up.railway.app/assets/assets/fonts/simple-line-icons.min.css">
+        <link rel="stylesheet" href="https://springmvc1-production.up.railway.app/assets/assets/css/Footer-Basic.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
-        <link rel="stylesheet" href="assets/assets/css/vanilla-zoom.min.css">
+        <link rel="stylesheet" href="https://springmvc1-production.up.railway.app/assets/assets/css/vanilla-zoom.min.css">
     </head>
         <body>
             <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
@@ -29,15 +29,15 @@
                 </div>
             </nav>
             <main class="page landing-page">
-                <section class="clean-block clean-hero" style="background-image:url(&quot;assets/assets/img/tech/image4.jpg&quot;);color:rgba(255 9 94 / 57%);">
+                <section class="clean-block clean-hero" style="background-image:url(&quot;https://springmvc1-production.up.railway.app/assets/assets/img/tech/image4.jpg&quot;);color:rgba(255 9 94 / 57%);">
                     <div class="text">
                         <h2>WELCOME</h2>
                         </div>
                 </section>
             </main>
-            <script src="assets/assets/bootstrap/js/bootstrap.min.js"></script>
+            <script src="https://springmvc1-production.up.railway.app/assets/assets/bootstrap/js/bootstrap.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-            <script src="assets/assets/js/vanilla-zoom.js"></script>
-            <script src="assets/assets/js/theme.js"></script>
+            <script src="https://springmvc1-production.up.railway.app/assets/assets/js/vanilla-zoom.js"></script>
+            <script src="https://springmvc1-production.up.railway.app/assets/assets/js/theme.js"></script>
         </body>
 </html>

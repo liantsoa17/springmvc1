@@ -7,11 +7,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <title>Index</title>
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-        <link rel="stylesheet" href="assets/css/Footer-Basic.css">
-        <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
-        <link rel="stylesheet" href="assets/css/styles.css">
+        <link rel="stylesheet" href="https://springmvc1-production.up.railway.app/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://springmvc1-production.up.railway.app/assets/fonts/ionicons.min.css">
+        <link rel="stylesheet" href="https://springmvc1-production.up.railway.app/assets/css/Footer-Basic.css">
+        <link rel="stylesheet" href="https://springmvc1-production.up.railway.app/assets/css/Login-Form-Clean.css">
+        <link rel="stylesheet" href="https://springmvc1-production.up.railway.app/assets/css/styles.css">
         
     </head>
         <body>
