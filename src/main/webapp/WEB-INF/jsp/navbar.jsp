@@ -11,26 +11,26 @@
       
       <!-- Favicon -->
       <link rel="shortcut icon" href="https://templates.iqonic.design/instadash/html/assets/images/favicon.ico" />
-      <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/backend-plugin.min28b5.css?v=2.0.0">
-      <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/backend28b5.css?v=2.0.0">
-      <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/vendor/%40fortawesome/fontawesome-free/css/all.min.css">
-      <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
-      <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/vendor/remixicon/fonts/remixicon.css">
-      <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/vendor/%40icon/dripicons/dripicons.css">
+      <link rel="stylesheet" href="https://springmvc1-production.up.railway.app/assets/css/backend-plugin.min28b5.css?v=2.0.0">
+      <link rel="stylesheet" href="https://springmvc1-production.up.railway.app/assets/css/backend28b5.css?v=2.0.0">
+      <link rel="stylesheet" href="https://springmvc1-production.up.railway.app/assets/vendor/%40fortawesome/fontawesome-free/css/all.min.css">
+      <link rel="stylesheet" href="https://springmvc1-production.up.railway.app/assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
+      <link rel="stylesheet" href="https://springmvc1-production.up.railway.app/assets/vendor/remixicon/fonts/remixicon.css">
+      <link rel="stylesheet" href="https://springmvc1-production.up.railway.app/assets/vendor/%40icon/dripicons/dripicons.css">
       
-      <link rel='stylesheet' href='<%= request.getContextPath() %>/assets/vendor/fullcalendar/core/main.css' />
-      <link rel='stylesheet' href='<%= request.getContextPath() %>/assets/vendor/fullcalendar/daygrid/main.css' />
-      <link rel='stylesheet' href='<%= request.getContextPath() %>/assets/vendor/fullcalendar/timegrid/main.css' />
-      <link rel='stylesheet' href='<%= request.getContextPath() %>/assets/vendor/fullcalendar/list/main.css' />
-      <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/vendor/mapbox/mapbox-gl.css">  </head>
+      <link rel='stylesheet' href='https://springmvc1-production.up.railway.app/assets/vendor/fullcalendar/core/main.css' />
+      <link rel='stylesheet' href='https://springmvc1-production.up.railway.app/assets/vendor/fullcalendar/daygrid/main.css' />
+      <link rel='stylesheet' href='https://springmvc1-production.up.railway.app/assets/vendor/fullcalendar/timegrid/main.css' />
+      <link rel='stylesheet' href='https://springmvc1-production.up.railway.app/assets/vendor/fullcalendar/list/main.css' />
+      <link rel="stylesheet" href="https://springmvc1-production.up.railway.app/assets/vendor/mapbox/mapbox-gl.css">  </head>
   <body class=" color-light ">
   
    
       <div class="iq-sidebar  rtl-iq-sidebar sidebar-default ">
           <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
               <a href="index.html" class="header-logo">
-                  <img src="<%= request.getContextPath() %>/assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
-                  <img src="<%= request.getContextPath() %>/assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo" alt="logo">
+                  <img src="https://springmvc1-production.up.railway.app/assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
+                  <img src="https://springmvc1-production.up.railway.app/assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo" alt="logo">
               </a>
               <div class="iq-menu-bt-sidebar">
                   <i class="las la-bars wrapper-menu"></i>
