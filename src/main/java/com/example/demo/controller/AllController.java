@@ -1,167 +1,201 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.*;
-
-import java.util.ArrayList;
 import java.util.List;
-import com.example.demo.service.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.Exception.CustomException;
+import com.example.demo.model.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.demo.service.AdminService;
+import com.example.demo.service.CategorieService;
+import com.example.demo.service.CommissionService;
+import com.example.demo.service.EnchereService;
+import com.example.demo.service.DemandeRechargeService;
+import com.example.demo.service.*;
+import com.example.demo.repository.*;
+
+
+
 @Controller
 public class AllController {
-    @Autowired
-    CritereChiffreService critereChiffreService;
 
     @Autowired
-    CritereLettreService critereLettreService;
+    AdminService AdminService;
 
     @Autowired
-    DiscoursService discoursService;
+    CategorieService CategorieService;
 
     @Autowired
-    InfoChiffreService infoChiffreService;
+    EnchereService EnchereService;
 
     @Autowired
-    InfoLettreService infoLettreService;
+    CommissionService CommissionService;
 
     @Autowired
-    RechercherChiffreService rechercherChiffreService;
+    DemandeRechargeRepo DemandeRechargeRepo;
 
     @Autowired
-    RechercherLettreService rechercherLettreService;
+    DemandeRechargeService DemandeRechargeService;
 
     @Autowired
-    UserService userService;
+    MouvementService MouvementService;
+
 
     @Autowired
-    ValeurCritereService valeurCritereService;
+    EnchereRepo EnchereRepo;
+
 
     @Autowired
-    ValeurMotService valeurMotService;
+    V_Statistique_primRepo V_Statistique_primRepo;
+    
+   
 
-    @Autowired
-    FonctionService fonctionService;
-
-
-
-    @RequestMapping(value = "/getquestion")
-    public String getQuestion(Model m){
-        Iterable<CritereChiffre> v=  critereChiffreService.findAll();
-        List<CritereLettre> v1=critereLettreService.getAll();
-        m.addAttribute("criterechiffre",v);
-        m.addAttribute("criterelettre",v1);
-        return "formulaire";
+    @RequestMapping(value = "/index")
+    public String getIndex(){
+        return "index";
     }
-    @RequestMapping(value = "/getinfo")
-    public String getInfo(Model m, HttpServletRequest request){
-        Iterable<CritereChiffre> v=  critereChiffreService.findAll();
-        List<CritereLettre> v1=critereLettreService.getAll();
 
-        m.addAttribute("criterechiffre",v);
-        m.addAttribute("criterelettre",v1);
+    @RequestMapping(value = "/loginAdmin")
+    public String Seconnecter(HttpServletRequest request,Model m){
+        String email = request.getParameter("email");
+        String mdp = request.getParameter("mdp");
+        Admin admin = AdminService.login(email, mdp);
+        if(admin!=null){
+            return "acceuil";
+        }return "index";
+    }
+    @RequestMapping(value = "/Categorie")
+    public String Categorie(Model m){
+        Iterable<Categorie> listCategorie = CategorieService.findAll();
+        m.addAttribute("listCategorie", listCategorie);
+        return "Categorie";
+    }
+    @RequestMapping(value = "/newCategorie")
+    public String newCategorie(HttpServletRequest request,Model m) throws CustomException{
+        String categorie = request.getParameter("categorie");
+        Categorie cat = new Categorie();
+        cat.setNom(categorie);
+        CategorieService.create(cat);
+        Iterable<Categorie> listCategorie = CategorieService.findAll();
+        m.addAttribute("listCategorie", listCategorie);
+        return "Categorie";
+    }
+    @RequestMapping(value = "/updateCategorie")
+    public String updateCategorie(HttpServletRequest request,Model m) throws CustomException{
+        String id = request.getParameter("id");
+        String nom = request.getParameter("nom");
+        m.addAttribute("id", id);
+        m.addAttribute("nom", nom);
+        return "updateCategorie";
+    }
+    @RequestMapping(value = "/Updateexecute")
+    public String Updateexecute(HttpServletRequest request,Model m) throws CustomException{
+        String id = request.getParameter("id");
+        String valeur = request.getParameter("valeur");
+        Categorie categorie = new Categorie();
+        categorie.setId(Integer.parseInt(id));
+        categorie.setNom(valeur);
+        CategorieService.update(categorie);
+        Iterable<Categorie> listCategorie = CategorieService.findAll();
+        m.addAttribute("listCategorie", listCategorie);
+        return "Categorie";
+    }
+    @RequestMapping(value = "/deleteCategorie")
+    public String deleteCategorie(HttpServletRequest request,Model m) throws CustomException{
+        String id = request.getParameter("id");
+        CategorieService.delete(Integer.parseInt(id));
+        Iterable<Categorie> listCategorie = CategorieService.findAll();
+        m.addAttribute("listCategorie", listCategorie);
+        return "Categorie";
+    }
+    @RequestMapping(value = "/listeEnchere")
+    public String listeEnchere(Model m) throws CustomException{
+        Iterable<Enchere> listEnchere = EnchereService.findAll();
+        m.addAttribute("listEnchere", listEnchere);
+        return "ListeEnchere";
+    }
+    @RequestMapping(value = "/pourcentage")
+    public String pourcentage() throws CustomException{
+        return "Commision";
+    }
 
-        List<InfoChiffre> chiffres=new ArrayList<>();
-        List<InfoLettre> lettres=new ArrayList<>();
+    @RequestMapping(value = "/Commission")
+    public String Commission(HttpServletRequest request) throws CustomException{
+        String pourcentage = request.getParameter("pourcentage");
+        Commission commision = new Commission();
+        commision.setPourcentage(Double.parseDouble(pourcentage));
+        CommissionService.create(commision);
+        return "acceuil";
+    }
 
-        User user=new User();
-        user.setNom(request.getParameter("nom"));
-        user.setPrenom(request.getParameter("prenom"));
-        user.setNote(Double.valueOf(request.getParameter("note")));
-        user.setSexe(Integer.valueOf(request.getParameter("sexe")));
-        user.setDiscours(request.getParameter(("discours")));
+    @RequestMapping(value = "/demandeRecharge")
+    public String demadedeRecharge(Model m) throws CustomException{
+        List<DemandeRecharge> list = DemandeRechargeRepo.findwhereEtat();
+        m.addAttribute("demande", list);
+        return "DemandeRecharge";
+    }
 
-        userService.save(user);
-
-        for (CritereChiffre element : v) {
-            InfoChiffre c=new InfoChiffre();
-            c.setIdCritereChiffre(element.getId());
-            c.setValeur(Double.valueOf(request.getParameter(element.getNom())));
-            c.setIdUser(user.getId());
-           chiffres.add(c);
-
-            // code pour traiter l'élément
+    @RequestMapping(value = "/statistique")
+    public String statistique(Model m) throws Exception{
+        List<V_Statistique_prim> list_enchere = EnchereService.statistique();
+        String donnee = "";
+        for(int i = 0 ; i < list_enchere.size() ; i++){
+            donnee+=((V_Statistique_prim) list_enchere.get(i)).getId()+","
+            +((V_Statistique_prim) list_enchere.get(i)).getNom()+","+((V_Statistique_prim) list_enchere.get(i)).getIdcategorie()+"/";
         }
-        for (CritereLettre element : v1) {
-            InfoLettre c=new InfoLettre();
-            c.setIdValeurCritere(Integer.valueOf(request.getParameter(element.getNom())));
-            c.setIdUser(user.getId());
-            lettres.add(c);
+        m.addAttribute("list_enchere", donnee);
+        return "statistique";
+    }
 
-            // code pour traiter l'élément
+    @RequestMapping(value = "/stat")
+    public String stat(Model m) throws Exception{
+        List<V_Statistique_sec> list_enchere = EnchereService.statistiqueparUser();
+        String donnee = "";
+        for(int i = 0 ; i < list_enchere.size() ; i++){
+            donnee+=((V_Statistique_sec) list_enchere.get(i)).getId()+","
+            +((V_Statistique_sec) list_enchere.get(i)).getNom()+","+((V_Statistique_sec) list_enchere.get(i)).getIdutilisateur()+"/";
         }
-        infoChiffreService.saveAll(chiffres);
-        infoLettreService.saveAll(lettres);
-        m.addAttribute("user",user);
-        return "recherche";
+        m.addAttribute("list_enchere", donnee);
+        return "statistique_sec";
     }
 
-    @RequestMapping(value = "/getrechercher")
-    public String getrechercher(Model m,HttpServletRequest request){
-        User user=userService.findById(Integer.valueOf(request.getParameter("user")));
-        Iterable<CritereChiffre> v=  critereChiffreService.findAll();
-        List<CritereLettre> v1=critereLettreService.getAll();
-
-        List<RechercherChiffre> chiffres=new ArrayList<>();
-        List<RechercherLettre> lettres=new ArrayList<>();
-
-        for (CritereChiffre element : v) {
-            RechercherChiffre c=new RechercherChiffre();
-            c.setIdCritereChiffre(element.getId());
-            c.setCoefficient(Integer.valueOf(request.getParameter(element.getNom()+"coeff")));
-            c.setMin(Double.valueOf(request.getParameter(element.getNom()+"min")));
-            c.setMax(Double.valueOf(request.getParameter(element.getNom()+"max")));
-            c.setIdUser(user.getId());
-            chiffres.add(c);
-
-            // code pour traiter l'élément
+    @RequestMapping(value = "/statistiqueparUser")
+    public String statistiqueparUser(Model m) throws Exception{
+        List<V_Statistique_prim> list_enchere = EnchereService.statistique();
+        String donnee = "";
+        for(int i = 0 ; i < list_enchere.size() ; i++){
+            donnee+=((V_Statistique_prim) list_enchere.get(i)).getId()+","
+            +((V_Statistique_prim) list_enchere.get(i)).getNom()+","+((V_Statistique_prim) list_enchere.get(i)).getIdcategorie()+"/";
         }
-        for (CritereLettre element : v1) {
-            RechercherLettre c=new RechercherLettre();
-            c.setIdValeurCritere(Integer.valueOf(request.getParameter(element.getNom())));
-            c.setCoefficient(Integer.valueOf(request.getParameter(element.getNom()+"coeff")));
-            c.setIdUser(user.getId());
-            lettres.add(c);
-
-            // code pour traiter l'élément
-        }
-        rechercherChiffreService.saveAll(chiffres);
-        rechercherLettreService.saveAll(lettres);
-        List<User> all=fonctionService.compatible(user);
-        m.addAttribute("liste",all);
-       return "mate";
-    }
-    @RequestMapping(value = "/listeutilisateur")
-    public String listeUtilisateur(Model m){
-
-       m.addAttribute("liste",userService.allUser());
-       User user1=new User("Jean","Jean",0,14.0);
-       User user2=new User("Jeanne","Jeanne",1,14.0);
-       User user3=new User("Julie","Julie",1,14.0);
-       //userService.save(user1);
-       //userService.save(user2);
-       //userService.save(user3);
-        return "listeUtilisateur";
+        m.addAttribute("list_enchere", donnee);
+        return "statistique";
     }
 
-    @RequestMapping(value = "/getmate/{id}")
-    public String getmate(@PathVariable("id") Integer id,Model m){
-        User one=userService.findById(id);
-        List<User> all=fonctionService.compatible(one);
-        m.addAttribute("liste",all);
-        return "mate";
-    }
-
-    @RequestMapping(value = "/infomate/{id}")
-    public String infoMate(@PathVariable("id") Integer id,Model m){
-        User one=userService.findById(id);
-        m.addAttribute("chiffre",userService.getChiffre(id));
-        m.addAttribute("Lettre",userService.getLettre(id));
-        return "infoMate";
+    @RequestMapping(value = "/AccepterdemandeRecharge")
+    public String AccepterdemandeRecharge(HttpServletRequest request,Model m) throws CustomException{
+        String idDemande = request.getParameter("idDemande");
+        String idutilisateur = request.getParameter("idutilisateur");
+        String valeur = request.getParameter("valeur");
+        DemandeRecharge demande = new DemandeRecharge();
+        demande.setEtat(1);
+        demande.setId(Integer.parseInt(idDemande));
+        demande.setIdUtilisateur(Integer.parseInt(idutilisateur));
+        demande.setValeur(Double.parseDouble(valeur));
+        DemandeRechargeService.update(demande);
+        Mouvement mouvement = new Mouvement();
+        mouvement.setIdUtilisateur(demande.getIdUtilisateur());
+        mouvement.setCredit(0);
+        mouvement.setDebit(demande.getValeur());
+        mouvement.setIdNomMvt(1);
+        MouvementService.create(mouvement);
+        List<DemandeRecharge> list = DemandeRechargeRepo.findwhereEtat();
+        m.addAttribute("demande", list);
+        return "DemandeRecharge";
     }
 }

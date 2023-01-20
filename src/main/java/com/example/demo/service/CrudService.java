@@ -31,6 +31,7 @@ public class CrudService <E,  R extends JpaRepository<E, Integer>> implements Se
         return repo.findById(id).orElse(null);
     }
 
+
     @Override
     public Iterable<E> findAll() {
         return repo.findAll();
